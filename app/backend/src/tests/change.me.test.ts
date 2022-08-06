@@ -4,7 +4,7 @@ import * as chai from 'chai';
 import chaiHttp = require('chai-http');
 
 import { app } from '../app';
-import Example from '../database/models/ExampleModel';
+import Users from '../database/models/Users';
 
 import { Response } from 'superagent';
 
@@ -12,32 +12,36 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('Seu teste', () => {
-  /**
-   * Exemplo do uso de stubs com tipos
-   */
+describe('Users Entity', () => {
+  it('Model Users deve ter uma propriedade id', () => {
+		const newUser = new Users();
 
-  // let chaiHttpResponse: Response;
+		expect(newUser.id).to.be.equal(1);
+	});
 
-  // before(async () => {
-  //   sinon
-  //     .stub(Example, "findOne")
-  //     .resolves({
-  //       ...<Seu mock>
-  //     } as Example);
-  // });
+  it('Model Users deve ter uma propriedade username', () => {
+		const newUser = new Users();
 
-  // after(()=>{
-  //   (Example.findOne as sinon.SinonStub).restore();
-  // })
+    newUser.username = 'admin';
 
-  // it('...', async () => {
-  //   chaiHttpResponse = await chai
-  //      .request(app)
-  //      ...
+		expect(newUser.username).to.be.equal('admin');
+	});
 
-  //   expect(...)
-  // });
+  it('Model Users deve ter uma propriedade role', () => {
+		const newUser = new Users();
+
+		newUser.role = 'admin';
+
+		expect(newUser.role).to.be.equal('admin');
+	});
+
+  it('Model Users deve ter uma propriedade email', () => {
+		const newUser = new Users();
+
+		newUser.email = 'admin@gmail.com';
+
+		expect(newUser.email).to.be.equal('admin@gmail.com');
+	});
 
   it('Seu sub-teste', () => {
     expect(false).to.be.eq(true);
