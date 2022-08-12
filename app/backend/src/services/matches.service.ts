@@ -1,5 +1,6 @@
 import Matches from '../database/models/Matches';
 import Teams from '../database/models/Teams';
+import { IMatch } from '../interfaces/match.interface';
 
 const getMatches = async () => {
   const matches = await Matches.findAll({
@@ -17,4 +18,14 @@ const getMatches = async () => {
   return matches;
 };
 
-export default { getMatches };
+const createMatch = async (data: IMatch) => {
+  const { id } = await Matches.create(data);
+
+  return { id, ...data, inProgress: true };
+};
+
+const finishMatch = async (id: number) => {
+  await Matches.update({ inProgress: false }, { where: { id } });
+};
+
+export default { getMatches, createMatch, finishMatch };
