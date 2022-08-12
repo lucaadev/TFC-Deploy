@@ -12,46 +12,33 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('Testes da Model de User', () => {
-  it('Model Users deve ter uma propriedade id', () => {
-		const newUser = new Users();
-
-		newUser.id = 1;
-
-		expect(newUser.id).to.be.equal(1);
-	});
-
-  it('Model Users deve ter uma propriedade username', () => {
-		const newUser = new Users();
-
-    newUser.username = 'admin';
-
-		expect(newUser.username).to.be.equal('admin');
-	});
-
-  it('Model Users deve ter uma propriedade role', () => {
-		const newUser = new Users();
-
-		newUser.role = 'admin';
-
-		expect(newUser.role).to.be.equal('admin');
-	});
-
-  it('Model Users deve ter uma propriedade email', () => {
-		const newUser = new Users();
-
-		newUser.email = 'admin@gmail.com';
-
-		expect(newUser.email).to.be.equal('admin@gmail.com');
-	});
-});
-
 const user = [{
 	username: 'User',
 	role: 'user',
 	email: 'user@user.com',
 	password: '$2a$08$Y8Abi8jXvsXyqm.rmp0B.uQBA5qUz7T6Ghlg/CvVr/gLxYj5UAZVO',
 }];
+
+describe('Testes da Model de User', () => {
+	const [userModel] = user;
+	const newUser = new Users(userModel);
+  it('Model Users deve ter uma propriedade id', () => {
+		newUser.id = 1;
+		expect(newUser.id).to.be.equal(1);
+	});
+
+  it('Model Users deve ter uma propriedade username', () => {
+		expect(newUser.username).to.be.equal('User');
+	});
+
+  it('Model Users deve ter uma propriedade role', () => {
+		expect(newUser.role).to.be.equal('user');
+	});
+
+  it('Model Users deve ter uma propriedade email', () => {
+		expect(newUser.email).to.be.equal('user@user.com');
+	});
+});
 
 const correctLoginInfo = {
 	email: 'user@user.com',
