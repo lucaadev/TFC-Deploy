@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { verify } from 'jsonwebtoken';
+import jwt = require('jsonwebtoken');
 import 'dotenv/config';
 
 const secret = process.env.JWT_SECRET as string;
@@ -12,10 +12,10 @@ const validateJwt = (req: Request, res: Response, next: NextFunction) => {
   }
 
   try {
-    const decoded = verify(token, secret);
+    const decoded = jwt.verify(token as string, secret);
     req.params.user = decoded as string;
   } catch (error) {
-    res.status(401).json({ message: 'Token must be a valid token' });
+    return res.status(401).json({ message: 'Token must be a valid token' });
   }
 
   next();
