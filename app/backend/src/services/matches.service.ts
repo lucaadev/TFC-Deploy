@@ -1,3 +1,4 @@
+import { IUpMatch } from '../interfaces/update.match.interface';
 import Matches from '../database/models/Matches';
 import Teams from '../database/models/Teams';
 import { IMatch } from '../interfaces/match.interface';
@@ -24,8 +25,13 @@ const createMatch = async (data: IMatch) => {
   return { id, ...data, inProgress: true };
 };
 
+const updateMatch = async (data: IUpMatch, id: number) => {
+  const { homeTeamGoals, awayTeamGoals } = data;
+  await Matches.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
+};
+
 const finishMatch = async (id: number) => {
   await Matches.update({ inProgress: false }, { where: { id } });
 };
 
-export default { getMatches, createMatch, finishMatch };
+export default { getMatches, createMatch, updateMatch, finishMatch };

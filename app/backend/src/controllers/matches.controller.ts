@@ -11,6 +11,12 @@ const createMatch = async (req: Request, res: Response) => {
   return res.status(201).json(newMatch);
 };
 
+const updateMatch = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  await matchesService.updateMatch(req.body, Number(id));
+  return res.status(200).json({ response: 'match updated successfully!' });
+};
+
 const finishMatch = async (req: Request, res: Response) => {
   req.body = req.params;
   const { id } = req.body;
@@ -18,4 +24,4 @@ const finishMatch = async (req: Request, res: Response) => {
   return res.status(200).json({ message: 'Finished' });
 };
 
-export default { getMatches, createMatch, finishMatch };
+export default { getMatches, createMatch, updateMatch, finishMatch };
