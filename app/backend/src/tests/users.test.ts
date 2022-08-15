@@ -6,7 +6,7 @@ import { before } from 'mocha';
 
 import { app } from '../app';
 import Users from '../database/models/Users';
-import login from '../services/login.service';
+import { doLogin } from '../services/login.service';
 
 chai.use(chaiHttp);
 
@@ -87,7 +87,7 @@ describe('Testes do service de login', () => {
 	})
 
 	it('A função "login" retorna o usuário com sucesso', async () => {
-		const getUser = await login(correctLoginInfo);
+		const getUser = await doLogin(correctLoginInfo);
 		expect(getUser).to.be.a('object');
 	});
 });
