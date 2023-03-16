@@ -2,7 +2,7 @@ import axios from 'axios';
 import 'dotenv/config';
 
 const api = axios.create({
-  baseURL: 'https://tfc-deploy-production-2b27.up.railway.app/' || process.env.API_URL,
+  baseURL: 'https://tfc-deploy-production-2b27.up.railway.app/',
 });
 
 export const setToken = (token) => {
