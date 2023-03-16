@@ -38,7 +38,6 @@ Matches.init({
   },
   inProgress: {
     allowNull: false,
-    defaultValue: 0,
     type: BOOLEAN,
   },
 }, {
