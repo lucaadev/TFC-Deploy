@@ -1,5 +1,4 @@
 import axios from 'axios';
-import 'dotenv/config';
 
 const api = axios.create({
   baseURL: 'https://tfc-deploy-production-2b27.up.railway.app/',
