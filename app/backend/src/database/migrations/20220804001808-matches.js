@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'teams',
-          key: 'id', 
+          key: 'id',
         }
       },
       home_team_goals: {
@@ -35,7 +35,7 @@ module.exports = {
       },
       in_progress: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
     });
   },
