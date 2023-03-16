@@ -6,7 +6,7 @@ const config: Options = {
   password: process.env.PGPASSWORD,
   database: process.env.PGDATABASE,
   host: process.env.PGHOST,
-  port: Number(process.env.PGPORT) || 6602,
+  port: Number(process.env.PGPORT),
   dialect: 'postgres',
   define: {
     timestamps: false,
