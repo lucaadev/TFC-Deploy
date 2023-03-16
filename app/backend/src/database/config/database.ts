@@ -9,7 +9,7 @@ const config: Options = {
   port: Number(process.env.PGPORT),
   dialect: 'postgres',
   define: {
-    timestamps: true,
+    timestamps: false,
   }
 }
 
