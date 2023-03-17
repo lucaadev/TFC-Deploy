@@ -10,6 +10,12 @@ Para adicionar uma partida é necessário ter um token, portanto a pessoa dever�
 
 O seu back-end deverá implementar regras de negócio para popular adequadamente a tabela disponível no front-end que será exibida para a pessoa usuária do sistema.
 
+## Aplicação
+
+:fire: Link do site: [Trybe Futebol Clube](https://tfc-frontend-nu5xzlxgq-lucaadev.vercel.app/)
+
+# Caso queira ter uma cópia desse projeto em sua máquina, realize os seguintes passos.
+
 ## 🚀 Começando
 
 * 1° - Clone este repositório na sua máquina.
@@ -31,10 +37,6 @@ O seu back-end deverá implementar regras de negócio para popular adequadamente
 :arrow_right: O node deve ter versão igual ou superior à 16.15.0 LTS.
 
 :arrow_right: ) docker-compose deve ter versão igual ou superior àˆ1.29.2.
-
-### 🔧 Demonstração
-
-![Demonstração]()
 
 ## ⚙️ Executando os testes
 
